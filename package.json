@@ -1,0 +1,24 @@
+{
+  "name": "breeder",
+  "version": "1.0.0",
+  "description": "Organise jsonschema messages and export as typescript interfaces",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agentlewis/breeder.git"
+  },
+  "keywords": [
+    "jsonschema",
+    "typescript",
+    "interfaces"
+  ],
+  "author": "agentlewis (Daniel Lewis)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/agentlewis/breeder/issues"
+  },
+  "homepage": "https://github.com/agentlewis/breeder#readme"
+}
