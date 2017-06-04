@@ -1,10 +1,13 @@
 {
-  "name": "breeder",
+  "name": "@agentlewis/breeder",
   "version": "1.0.0",
   "description": "Organise jsonschema messages and export as typescript interfaces",
   "main": "index.js",
   "scripts": {
     "test": "test"
+  },
+  "bin": {
+    "breed": "bin/help.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/agentlewis/breeder/issues"
   },
-  "homepage": "https://github.com/agentlewis/breeder#readme"
+  "homepage": "https://github.com/agentlewis/breeder#readme",
+  "dependencies": {
+    "shelljs": "^0.7.7",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {}
 }
