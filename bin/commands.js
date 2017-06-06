@@ -7,7 +7,7 @@ console.log("Breed typescript interfaces from jsonschema")
 var argv = yargs.usage("$0 <cmd> [args]")
   .command("jsonschema [name]", "create a new jsonschema of [name]", {
     name: {
-      default: 'message'
+      default: 'example'
     }
   }, function (yargs) {
     shell.exec(`mkdir ${yargs.name} && touch ${yargs.name}/${yargs.name}.json`);

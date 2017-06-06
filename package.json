@@ -7,7 +7,7 @@
     "test": "test"
   },
   "bin": {
-    "breed": "bin/help.js"
+    "breed": "bin/commands.js"
   },
   "repository": {
     "type": "git",
