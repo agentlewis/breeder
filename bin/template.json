@@ -1,0 +1,9 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+
+  },
+  "additionalProperties": false,
+  "required": ["firstName", "lastName"]
+}

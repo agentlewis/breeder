@@ -13,7 +13,7 @@ var argv = yargs.usage("$0 <cmd> [args]")
       default: 'example'
     }
   }, function (yargs) {
-    shell.exec(`mkdir -p json-schemas/${yargs.name} && touch json-schemas/${yargs.name}/${yargs.name}.json`)
+    shell.exec(`mkdir -p json-schemas/${yargs.name} && cp ${__dirname}/template.json json-schemas/${yargs.name}/${yargs.name}.json`)
   })
   .command("type [name]", "create types based on [name]", {
     name: {
