@@ -25,8 +25,9 @@ var argv = yargs.usage("$0 <cmd> [args]")
       if (err) return err
       console.log(files)
       R.map(function (file) {
+        var fileName = file.replace(/\.[^/.]+$/, "")
         compileFromFile(`json-schemas/${yargs.name}/${file}`)
-        .then(ts => fs.writeFileSync(`${yargs.name}/types/${file}.ts`, ts))
+        .then(ts => fs.writeFileSync(`${yargs.name}/types/${fileName}.ts`, ts))
       }, files)
     })
  })
