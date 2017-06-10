@@ -4,7 +4,8 @@
   "description": "Organise jsonschema messages and export as typescript interfaces",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "breed": "bin/commands.js"
   },
   "bin": {
     "breed": "bin/commands.js"
