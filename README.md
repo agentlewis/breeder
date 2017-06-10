@@ -10,6 +10,13 @@ Organise jsonschemas to describe message data shapes and generate typescript int
 ## Link
 You may use `npm link` to add the bin commands to your path.
 
+## Todo
+
+ - [x] parse to interface
+ - [x] init yargs cli
+ - [ ] stub getter with interface defined as return
+ - [ ] tests
+
 ## Commands
 ```
 Breed typescript interfaces from jsonschema
