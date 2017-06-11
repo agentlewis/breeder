@@ -29,6 +29,7 @@
     "json-schema-to-typescript": "^4.4.0",
     "ramda": "^0.24.1",
     "shelljs": "^0.7.7",
+    "tspoon": "^1.0.443",
     "yargs": "^8.0.1"
   },
   "devDependencies": {}
