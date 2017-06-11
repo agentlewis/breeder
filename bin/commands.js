@@ -5,6 +5,8 @@ var fs = require('fs')
 var R = require('ramda')
 var compileFromFile = require('json-schema-to-typescript').compileFromFile
 
+var Pollinate = require('./pollinate')
+
 console.log("Breed typescript interfaces from jsonschema")
 
 var argv = yargs.usage("$0 <cmd> [args]")
@@ -30,7 +32,14 @@ var argv = yargs.usage("$0 <cmd> [args]")
         .then(ts => fs.writeFileSync(`${yargs.name}/types/${fileName}.ts`, ts))
       }, files)
     })
- })
+  })
+  .command("getter [name]", "stub a function in a getter.js file", {
+    name: {
+      default: 'example'
+    }
+  }, function (yargs) {
+    Pollinate.interface(yargs.name)
+  })
   .demand(1, "must provide a valid command")
   .help("h")
   .alias("h", "help")
