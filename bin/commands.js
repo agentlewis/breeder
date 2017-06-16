@@ -8,7 +8,7 @@ var compileFromFile = require('json-schema-to-typescript').compileFromFile
 console.log("Breed typescript interfaces from jsonschema")
 
 var argv = yargs.usage("$0 <cmd> [args]")
-  .command("schema [domain]", "create jsonschema for [domain] with default selector", {
+  .command("schema [domain]", "create jsonschema for [domain]", {
     domain: {
       default: 'example'
     }
