@@ -5,8 +5,6 @@ var fs = require('fs')
 var R = require('ramda')
 var compileFromFile = require('json-schema-to-typescript').compileFromFile
 
-console.log("Breed typescript interfaces from jsonschema")
-
 var argv = yargs.usage("$0 <cmd> [args]")
   .command("schema [domain]", "create jsonschema for [domain]", {
     domain: {
