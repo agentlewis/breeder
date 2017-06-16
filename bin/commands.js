@@ -8,14 +8,14 @@ var compileFromFile = require('json-schema-to-typescript').compileFromFile
 console.log("Breed typescript interfaces from jsonschema")
 
 var argv = yargs.usage("$0 <cmd> [args]")
-  .command("schema [domain]", "create a new jsonschem for [domain] with default selector", {
+  .command("schema [domain]", "create jsonschema for [domain] with default selector", {
     domain: {
       default: 'example'
     }
   }, function (yargs) {
     shell.exec(`mkdir -p json-schemas/${yargs.domain} && cp -n ${__dirname}/template.json json-schemas/${yargs.domain}/${yargs.domain}.json`)
   })
-  .command("schema [domain] [selector]", "create a new jsonschema of [selector] for [domain]", {
+  .command("schema [domain] [selector]", "create jsonschema of [selector] for [domain]", {
     domain: {
       default: 'example'
     },
