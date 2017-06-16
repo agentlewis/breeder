@@ -40,12 +40,12 @@ var argv = yargs.usage("$0 <cmd> [args]")
       }, files)
     })
   })
-  .command("getter [domain]", "stub a function in a getter.js file", {
+  .command("getter [domain]", "stub a function in a getter.ts file", {
     name: {
       default: 'example'
     }
   }, function (yargs) {
-    shell.exec(`mkdir -p ${yargs.domain}/getters.js`)
+    shell.exec(`mkdir -p ${yargs.domain}/getters.ts`)
     Pollinate.interface(yargs.domain)
   })
   .demand(1, "must provide a valid command")
