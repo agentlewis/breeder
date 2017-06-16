@@ -8,12 +8,15 @@ var compileFromFile = require('json-schema-to-typescript').compileFromFile
 console.log("Breed typescript interfaces from jsonschema")
 
 var argv = yargs.usage("$0 <cmd> [args]")
-  .command("schema [name]", "create a new jsonschema of [name]", {
-    name: {
+  .command("schema [domain] [selector]", "create a new jsonschema of [selector] for [domain]", {
+    domain: {
+      default: 'example'
+    },
+    selector: {
       default: 'example'
     }
   }, function (yargs) {
-    shell.exec(`mkdir -p json-schemas/${yargs.name} && cp ${__dirname}/template.json json-schemas/${yargs.name}/${yargs.name}.json`)
+    shell.exec(`mkdir -p json-schemas/${yargs.domain} && cp -n ${__dirname}/template.json json-schemas/${yargs.domain}/${yargs.selector}.json`)
   })
   .command("type [name]", "create types based on [name]", {
     name: {
