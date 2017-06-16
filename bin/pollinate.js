@@ -2,22 +2,23 @@ var ts = require('typescript');
 var tspoon = require('tspoon')
 var fs = require('fs');
 var path = require('path');
-var getter = require('./visitors/getter')
+var tsstruct = require("ts-structure-parser")
+var R = require('rambda')
+
+var type = require('./visitors/type')
 
 var Pollinate = function () {};
 
 Pollinate.prototype.interface = function (name) {
   var config = {
-      sourceFileName: `${name}/getters.js`,
-      visitors: [getter]
-  };
-  var sourceCode = fs.readFileSync(path.relative(process.cwd(),`${name}/types/${name}.ts`), 'utf8');
-  // Todo: get the name of the iterface
+      sourceFileName: `${name}/types/${name}.ts`,
+      visitors: [type]
+  }
+  
   // Todo: add the import statement to getter.ts
   // Todo: if no structured selector exists for the interface name - stub it out at the bottom of the file.
   // Todo: if a structured selector exists for the interface name add the interface as the return type
   var transpilerOut = tspoon.transpile(sourceCode, config);
-  console.log(transpilerOut)
   if (transpilerOut.diags) {
       transpilerOut.diags.forEach(function (d) {
       var position = d.file.getLineAndCharacterOfPosition(d.start);
@@ -31,6 +32,17 @@ Pollinate.prototype.interface = function (name) {
   var mapString = convertSourceMap.fromObject(transpilerOut.sourceMap).toJSON();
 
   fs.writeFileSync(path.join(__dirname, 'src.js.map'), mapString, {encoding:'utf8'});
+}
+
+function getInterfaces (name) {
+  var filePath = path.relative(process.cwd(),`${name}/types/${name}.ts`)
+  var decls = fs.readFileSync(filePath).toString()
+  var jsonStructure = tsstruct.parseStruct(decls,{},filePath)
+  return R.filter(isInterface, jsonStructure.classes)
+}
+
+function isInterface (item) {
+  if (item.isInterface) return item
 }
 
 module.exports = new Pollinate()
