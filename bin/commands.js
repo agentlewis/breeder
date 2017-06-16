@@ -15,11 +15,11 @@ var argv = yargs.usage("$0 <cmd> [args]")
   }, function (yargs) {
     shell.exec(`mkdir -p json-schemas/${yargs.domain} && cp -n ${__dirname}/template.json json-schemas/${yargs.domain}/${yargs.domain}.json`)
   })
-  .command("schema [domain] [selector]", "create jsonschema of [selector] for [domain]", {
+  .command("schema [domain] [componentName]", "create jsonschema of [componentName] for [domain]", {
     domain: {
       default: 'example'
     },
-    selector: {
+    componentName: {
       default: 'example'
     }
   }, function (yargs) {
@@ -40,12 +40,13 @@ var argv = yargs.usage("$0 <cmd> [args]")
       }, files)
     })
   })
-  .command("getter [name]", "stub a function in a getter.js file", {
+  .command("getter [domain]", "stub a function in a getter.js file", {
     name: {
       default: 'example'
     }
   }, function (yargs) {
-    Pollinate.interface(yargs.name)
+    shell.exec(`mkdir -p ${yargs.domain}/getters.js`)
+    Pollinate.interface(yargs.domain)
   })
   .demand(1, "must provide a valid command")
   .help("h")
