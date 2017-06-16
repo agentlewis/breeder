@@ -33,7 +33,6 @@ var argv = yargs.usage("$0 <cmd> [args]")
     shell.exec(`mkdir -p ${yargs.name}/types`)
     fs.readdir(`json-schemas/${yargs.name}`, function (err, files) {
       if (err) return err
-      console.log(files)
       R.map(function (file) {
         var fileName = file.replace(/\.[^/.]+$/, "")
         compileFromFile(`json-schemas/${yargs.name}/${file}`)
