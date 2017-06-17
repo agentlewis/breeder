@@ -5,20 +5,26 @@ var path = require('path');
 var tsstruct = require("ts-structure-parser")
 var R = require('rambda')
 
-var type = require('./visitors/type')
+var visitType = require('./visitors/type')
 
 var Pollinate = function () {};
 
 Pollinate.prototype.interface = function (name) {
   var config = {
-      sourceFileName: `${name}/types/${name}.ts`,
+      sourceFileName: path.relative(process.cwd(),`${name}/getters.ts`),
       visitors: [type]
   }
+
+  var interfaces = getInterfaces(name)
   
   // Todo: add the import statement to getter.ts
   // Todo: if no structured selector exists for the interface name - stub it out at the bottom of the file.
   // Todo: if a structured selector exists for the interface name add the interface as the return type
+  var sourceCode = fs.readFileSync(path.relative(process.cwd(),`${name}/getters.ts`), 'utf8')
+
   var transpilerOut = tspoon.transpile(sourceCode, config);
+  console.log(transpilerOut)
+
   if (transpilerOut.diags) {
       transpilerOut.diags.forEach(function (d) {
       var position = d.file.getLineAndCharacterOfPosition(d.start);
