@@ -1,0 +1,89 @@
+{
+  "name": "agentlewis/breeder",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Breeder",
+  "branch": "master",
+  "style": {
+    "name": "Humanist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/LightBannerHeader",
+      "article": "article/ReaderArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Athelas, Georgia, serif",
+    "heading": {
+      "fontWeight": 400,
+      "textTransform": "uppercase",
+      "letterSpacing": "0.1em"
+    },
+    "colors": {
+      "text": "#121212",
+      "background": "#fff",
+      "primary": "#ee5544",
+      "secondary": "#005499",
+      "highlight": "#00bd78",
+      "border": "#ddd",
+      "muted": "#f3f3f3"
+    },
+    "layout": {
+      "maxWidth": 768
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/agentlewis/breeder",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/@agentlewis/breeder",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "breeder",
+      "subhead": "Organise jsonschemas to describe message data shapes and generate typescript interfaces (types) in dogstack domains",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "breeder: Organise jsonschemas to describe message data shapes and generate typescript interfaces (types) in dogstack domains",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "agentlewis",
+          "repo": "breeder"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n\n<h2>Run</h2>\n<p><code>npm run breed</code></p>\n<h2>Test</h2>\n<p><code>npm run test</code> (WIP)</p>\n<h2>Link</h2>\n<p>You may use <code>npm link</code> to add the bin commands to your path.</p>\n<h2>Todo</h2>\n<ul>\n<li>[x] parse to interface</li>\n<li>[x] init yargs cli</li>\n<li>[ ] stub getter with interface defined as return</li>\n<li>[ ] tests</li>\n</ul>\n<h2>Commands</h2>\n<pre>Breed typescript interfaces <span class=\"hljs-built_in\">from</span> jsonschema\nbreed &lt;cmd&gt; [args]\n\nCommands:\n  schema [name]  <span class=\"hljs-built_in\">create</span> <span class=\"hljs-keyword\">a</span> <span class=\"hljs-built_in\">new</span> jsonschema <span class=\"hljs-keyword\">of</span> [name]\n  type [name]    <span class=\"hljs-built_in\">create</span> types based <span class=\"hljs-keyword\">on</span> [<span class=\"hljs-title\">name</span>]\n\nOptions:\n  -h, <span class=\"hljs-comment\">--help  Show help                                                [boolean]</span>\n\nmust provide <span class=\"hljs-keyword\">a</span> valid <span class=\"hljs-keyword\">command</span></pre><h2>license</h2>\n<p>The Apache License</p>\n<p>Copyright &#xA9; 2016 Michael Williams</p>\n<p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at</p>\n<pre><span class=\"hljs-symbol\">http:</span>//www.apache<span class=\"hljs-meta\">.org</span>/licenses/LICENSE<span class=\"hljs-number\">-2.0</span></pre><p>Unless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an &quot;AS IS&quot; BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/agentlewis/breeder",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/agentlewis",
+          "text": "agentlewis"
+        }
+      ]
+    }
+  ]
+}
